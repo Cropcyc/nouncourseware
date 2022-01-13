@@ -15,20 +15,17 @@ app.use(express.urlencoded({extended: false}))
 
 const db = require('./app/models')
 
-db.sequelize.sync({ force: true}).then(() => {
-    console.log('Drop and re-sync database')
-})
+db.sequelize.sync()
 
 // app.get('/', (req, res) => {
 //     res.json({ greeting: 'This is the homepage route for unit testing.'})
 // })
 
+require('./app/routes/course.routes') (app)
+
 app.get('/', (req, res) => {
     res.sendFile(path + 'index.html')
 })
-
-
-require('./app/routes/course.routes') (app)
 
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => {
