@@ -6,7 +6,7 @@ const app = express()
 app.use(express.static(path))
 
 let corsOptions = {
-    origin: 'http://localhost:8081'
+    origin: 'https://fierce-inlet-25199.herokuapp.com/'
 }
 
 app.use(cors(corsOptions))
